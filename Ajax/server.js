@@ -63,6 +63,19 @@ app.all('/delay',(request,response)=>{
     const data={name: '尚硅谷'};
     response.send(JSON.stringify(data));
         });
+   //axios服务
+    app.all('/axios-server',(request,response)=>{
+      //设置响应头  设置允许跨域
+     response.setHeader('Access-Control-Allow-Origin','*');
+     response.setHeader('Access-Control-Allow-Headers','*');
+    // response.send('HELLO JQuery AJAX');
+
+     //const data={name: '尚硅谷'};
+    //response.send(JSON.stringify(data));
+
+    const data={name: '尚硅谷'};
+    response.send(JSON.stringify(data));
+        });
 //4.监听端口启动服务
 app.listen(8000,()=>{
   console.log("服务已启动，8000端口监听中。。。。");
