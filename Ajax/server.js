@@ -41,15 +41,28 @@ app.get('/ie',(request,response)=>{
   response.send('HELLO IE121223');
 });
 //延时响应
-app.get('/delay',(request,response)=>{
+app.all('/delay',(request,response)=>{
   //设置响应头  设置允许跨域
   response.setHeader('Access-Control-Allow-Origin','*');
+  response.setHeader('Access-Control-Allow-Headers','*');
     setTimeout(() => {
    //设置响应体
     response.send('延时响应');
-     }, 3000);
+     }, 1000);
     });
+    //jQuery服务
+    app.all('/jquery-server',(request,response)=>{
+      //设置响应头  设置允许跨域
+     response.setHeader('Access-Control-Allow-Origin','*');
+     response.setHeader('Access-Control-Allow-Headers','*');
+    // response.send('HELLO JQuery AJAX');
 
+     //const data={name: '尚硅谷'};
+    //response.send(JSON.stringify(data));
+
+    const data={name: '尚硅谷'};
+    response.send(JSON.stringify(data));
+        });
 //4.监听端口启动服务
 app.listen(8000,()=>{
   console.log("服务已启动，8000端口监听中。。。。");
