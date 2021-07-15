@@ -9,7 +9,7 @@ app.get('/server',(request,response)=>{
   //设置响应头  设置允许跨域
   response.setHeader('Access-Control-Allow-Origin','*');
   //设置响应体
-  response.send('HELLO AJAX');
+  response.send('HELLO AJAX123');
 });
 app.all('/server',(request,response)=>{
   //设置响应头  设置允许跨域
@@ -32,6 +32,13 @@ app.all('/json-server',(request,response)=>{
     let str=JSON.stringify(data);
   //设置响应体
   response.send(str);
+});
+//针对IE缓存
+app.get('/ie',(request,response)=>{
+  //设置响应头  设置允许跨域
+  response.setHeader('Access-Control-Allow-Origin','*');
+  //设置响应体
+  response.send('HELLO IE121223');
 });
 //4.监听端口启动服务
 app.listen(8000,()=>{
