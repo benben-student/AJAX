@@ -112,6 +112,19 @@ app.all('/delay',(request,response)=>{
     //返回结果
     response.end(`handle(${str})`);
    });
+   app.all('/jquery-jsonp-server',(request,response)=>{
+    // response.send('console.log("hello jsonp")');
+    const data={
+     name:'郑州大学',
+     city:['郑州','上海','深圳']
+    };
+    //将数据转化为字符串
+    let str=JSON.stringify(data);
+    //接收callback参数
+    let cb=request.query.callback;
+    //返回结果
+    response.end(`${cb}(${str})`);
+   });
 //4.监听端口启动服务
 app.listen(8000,()=>{
   console.log("服务已启动，8000端口监听中。。。。");
