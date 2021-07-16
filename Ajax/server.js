@@ -89,6 +89,29 @@ app.all('/delay',(request,response)=>{
     const data={name: '尚硅谷'};
     response.send(JSON.stringify(data));
         });
+  //jsonp服务
+  app.all('/jsonp-server',(request,response)=>{
+   // response.send('console.log("hello jsonp")');
+   const data={
+     name:'郑州大学'
+   };
+   //将数据转化为字符串
+   let str=JSON.stringify(data);
+   //返回结果
+   response.end(`handle(${str})`);
+  });
+  //用户名是否存在
+  app.all('/check-username',(request,response)=>{
+    // response.send('console.log("hello jsonp")');
+    const data={
+      exist:1,
+      msg:'用户名已经存在'
+    };
+    //将数据转化为字符串
+    let str=JSON.stringify(data);
+    //返回结果
+    response.end(`handle(${str})`);
+   });
 //4.监听端口启动服务
 app.listen(8000,()=>{
   console.log("服务已启动，8000端口监听中。。。。");
